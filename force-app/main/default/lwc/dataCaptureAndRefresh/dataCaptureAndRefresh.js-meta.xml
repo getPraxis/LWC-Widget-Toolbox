@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <isExposed>true</isExposed>
+    
+    <targets>
+        <target>lightning__RecordPage</target>
+    </targets>
+
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <property   name="notificationType" 
+                        type="String" 
+                        label="Notification Type" 
+                        datasource="Data Capture, Platform Event" 
+                        default="Data Capture" 
+                        required="true" 
+                        description="When selecting Data Capture the object must be manually added. When selecting Platform Event it must already be manually set up."/>
+
+            <property   name="refreshType" 
+                        type="String" 
+                        label="Refresh Type" 
+                        datasource="Browser refresh, LWC refresh" 
+                        default="LWC refresh" 
+                        required="true" 
+                        description="Selecting LWC refresh will ONLY refresh the specified field. Selecting browser refresh will trigger a page refresh."/>
+
+            <property   name="fieldToMonitor" 
+                        type="String" 
+                        label="Change Field ( What field to watch for. Example for Opportunity would be StageName. )"
+                        default=""
+                        required="false"
+                        description="If you select Data Capture, this field is required."/>
+            <property   name="fieldToMonitorValue" 
+                        type="String" 
+                        label="Change Value ( What value are we looking for. )"
+                        default=""
+                        required="false"
+                        description="If you select Data Capture, this field is required."/>
+
+            <property   name="validatePublishedUser" 
+                        type="Boolean" 
+                        label="Compare current user to published user."
+                        default="false"
+                        required="false"
+                        description="Indicates whether we should compare current user to publish event user."/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

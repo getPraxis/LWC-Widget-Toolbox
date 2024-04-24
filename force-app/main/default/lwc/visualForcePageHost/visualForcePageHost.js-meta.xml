@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>PRXS-Visualforce Page </masterLabel>
+    <description>Allows Visualforce Page to be hosted in flexi-pages.  Also, supports Managed Package Visualforce Pages.</description>
+    <targets>
+        <target>lightning__RecordPage</target>
+    </targets>
+
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <property name="pageHeight" type="String" default="1050px" 
+                      label="Enter the max height of the visual force page"/>
+            <property name="vfpChosenFromDesigner" type="String" 
+                      label="Visualforce Page.  List items are represented as NamespacePrefix.VisualforcePageName" 
+                      datasource="apex://VFPNamePicklistAttribute"
+                      required="true"/>  
+            <property name="parameterName" type="String"
+                      label="Enter the URL Parameter for this Objects Record Id"
+                      required="true"/>
+           
+            <property name="Parameter2Name" type="String"
+                      label="Enter the URL Parameter name for a second second parameter"/>
+            <property name="Parameter2LookupField" type="String"
+                      label="Select the lookup field that will be the value for the above URL parameter 2"
+                      datasource="apex://VFPNameObjectLookupsAttribute"/>  
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

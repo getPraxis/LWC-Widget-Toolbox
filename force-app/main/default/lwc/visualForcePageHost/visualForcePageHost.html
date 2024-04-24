@@ -1,0 +1,16 @@
+<template>
+    <template if:true={showIFrame}>
+        <iframe src={src} 
+                frameborder="0" 
+                height={pageHeight} 
+                width="100%" 
+                style="overflow:hidden" >
+        </iframe>
+    </template>
+
+    <template if:false={showIFrame}>
+        <lightning-spinner
+            alternative-text="Loading..." variant="brand">
+        </lightning-spinner>
+    </template>
+</template>
